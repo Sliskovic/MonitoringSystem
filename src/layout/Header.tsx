@@ -1,9 +1,13 @@
+import { logout } from "@/store/auth/authState";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   UserOutlined,
+  LogoutOutlined,
 } from "@ant-design/icons";
-import { Avatar, Button, Space, Typography } from "antd";
+import { Avatar, Button, Dropdown, Space, Typography, message } from "antd";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 interface HeaderBarProps {
   collapsed: boolean;
@@ -11,6 +15,24 @@ interface HeaderBarProps {
 }
 
 export const HeaderBar = ({ collapsed, setCollapsed }: HeaderBarProps) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    message.info("You have been logged out");
+    navigate("/login", { replace: true });
+  };
+
+  const menuItems = [
+    {
+      key: "logout",
+      label: "Logout",
+      icon: <LogoutOutlined />,
+      onClick: handleLogout,
+    },
+  ];
+
   return (
     <div
       style={{
@@ -42,11 +64,18 @@ export const HeaderBar = ({ collapsed, setCollapsed }: HeaderBarProps) => {
         <Typography.Text type="secondary" style={{ fontSize: 13 }}>
           v1.0
         </Typography.Text>
-        <Avatar
-          size="large"
-          icon={<UserOutlined />}
-          style={{ backgroundColor: "#1677ff" }}
-        />
+
+        <Dropdown
+          menu={{ items: menuItems }}
+          placement="bottomRight"
+          trigger={["click"]}
+        >
+          <Avatar
+            size="large"
+            icon={<UserOutlined />}
+            style={{ backgroundColor: "#1677ff", cursor: "pointer" }}
+          />
+        </Dropdown>
       </Space>
     </div>
   );

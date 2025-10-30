@@ -1,6 +1,6 @@
-import { Layout } from "antd";
+import { Layout, Spin } from "antd";
 import { Outlet } from "react-router-dom";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { SideNav } from "./SideNav";
 import { HeaderBar } from "./Header";
 
@@ -75,7 +75,22 @@ export const AppLayout = () => {
             background: "#f0f2f5",
           }}
         >
-          <Outlet />
+          <Suspense
+            fallback={
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                }}
+              >
+                <Spin size="large" />
+              </div>
+            }
+          >
+            <Outlet />
+          </Suspense>
         </Content>
       </Layout>
     </Layout>

@@ -1,33 +1,49 @@
 import { Table, Tag } from "antd";
+import type { TableProps } from "antd";
+import type { Asset } from "@/api/assetsApi";
 
-interface Asset {
-  key: string;
-  name: string;
-  type: string;
-  status: "active" | "offline" | "maintenance";
-}
+const statusMap: { [key: string]: { color: string; text: string } } = {
+  active: { color: "green", text: "Active" },
+  warning: { color: "gold", text: "Warning" },
+  critical: { color: "red", text: "Critical" },
+  inactive: { color: "default", text: "Inactive" },
+};
 
-const data: Asset[] = [
-  { key: "1", name: "Generator A1", type: "Generator", status: "active" },
-  { key: "2", name: "Pump B3", type: "Pump", status: "maintenance" },
-  { key: "3", name: "Sensor X7", type: "Sensor", status: "offline" },
-];
+type DashboardTableProps = {
+  data: Asset[];
+  loading: boolean;
+};
 
-export const DashboardTable = () => {
-  const columns = [
-    { title: "Name", dataIndex: "name", key: "name" },
-    { title: "Type", dataIndex: "type", key: "type" },
+export const DashboardTable = ({ data, loading }: DashboardTableProps) => {
+  const columns: TableProps<Asset>["columns"] = [
+    {
+      title: "Name",
+      dataIndex: "name",
+    },
     {
       title: "Status",
       dataIndex: "status",
-      key: "status",
-      render: (status: Asset["status"]) => {
-        const color =
-          status === "active" ? "green" : status === "offline" ? "red" : "gold";
-        return <Tag color={color}>{status.toUpperCase()}</Tag>;
+      render: (status: string) => {
+        const statusInfo = statusMap[status] || {
+          color: "default",
+          text: status,
+        };
+        return <Tag color={statusInfo.color}>{statusInfo.text}</Tag>;
       },
+    },
+    {
+      title: "Type",
+      dataIndex: "type",
     },
   ];
 
-  return <Table columns={columns} dataSource={data} pagination={false} />;
+  return (
+    <Table<Asset>
+      rowKey="id"
+      dataSource={data}
+      columns={columns}
+      loading={loading}
+      pagination={false}
+    />
+  );
 };

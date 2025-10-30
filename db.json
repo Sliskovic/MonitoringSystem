@@ -1,0 +1,152 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "password123",
+      "role": "admin",
+      "email": "admin@example.com"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "password123",
+      "role": "user",
+      "email": "user@example.com"
+    }
+  ],
+  "assets": [
+    {
+      "id": "a9",
+      "name": "Load Balancer",
+      "status": "warning",
+      "type": "software"
+    },
+    {
+      "id": "a10",
+      "name": "VPN Gateway -",
+      "status": "critical",
+      "type": "hardware"
+    },
+    {
+      "id": "a13",
+      "name": "CI/CD Pipeline",
+      "status": "active",
+      "type": "software"
+    },
+    {
+      "id": "a14",
+      "name": "Physical Server 3",
+      "status": "active",
+      "type": "hardware"
+    },
+    {
+      "id": "a15",
+      "name": "Virtual Machine 1",
+      "status": "active",
+      "type": "software"
+    },
+    {
+      "name": "dddedwe",
+      "status": "critical",
+      "type": "hardware",
+      "id": "bhvdQAE"
+    },
+    {
+      "name": "ecwcw",
+      "status": "critical",
+      "type": "software",
+      "id": "nD1wfkB"
+    },
+    {
+      "name": "warning server",
+      "status": "warning",
+      "type": "hardware",
+      "id": "-5K3hbQ"
+    },
+    {
+      "name": "warning server",
+      "status": "critical",
+      "type": "hardware",
+      "id": "mdJABiC"
+    },
+    {
+      "id": "b1",
+      "name": "Main Database Server",
+      "status": "active",
+      "type": "software"
+    },
+    {
+      "id": "b2",
+      "name": "Core Network Switch",
+      "status": "active",
+      "type": "hardware"
+    },
+    {
+      "id": "b3",
+      "name": "Analytics Dashboard",
+      "status": "critical",
+      "type": "software"
+    },
+    {
+      "id": "b4",
+      "name": "Legacy CRM System",
+      "status": "inactive",
+      "type": "software"
+    },
+    {
+      "id": "b5",
+      "name": "Office Printer HP",
+      "status": "active",
+      "type": "hardware"
+    },
+    {
+      "id": "b6",
+      "name": "Firewall-01",
+      "status": "active",
+      "type": "hardware"
+    },
+    {
+      "id": "b7",
+      "name": "Test Environment VM",
+      "status": "inactive",
+      "type": "software"
+    },
+    {
+      "id": "b8",
+      "name": "File Storage Server",
+      "status": "critical",
+      "type": "hardware"
+    },
+    {
+      "id": "b9",
+      "name": "Authentication Service",
+      "status": "active",
+      "type": "software"
+    },
+    {
+      "id": "c1",
+      "name": "VoIP Phone System",
+      "status": "warning",
+      "type": "hardware"
+    },
+    {
+      "id": "c2",
+      "name": "Marketing Website CMS",
+      "status": "active",
+      "type": "software"
+    },
+    {
+      "id": "c3",
+      "name": "Backup Server",
+      "status": "inactive",
+      "type": "hardware"
+    },
+    {
+      "name": "mara",
+      "status": "critical",
+      "type": "hardware",
+      "id": "-VE5Mb7"
+    }
+  ]
+}
