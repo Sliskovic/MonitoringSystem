@@ -62,3 +62,20 @@ npm install
 # or
 yarn install
 ```
+
+### Start the mock backend server
+
+```bash
+npm run server
+# or
+yarn server
+```
+
+### Start the development server
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
