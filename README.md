@@ -1,73 +1,64 @@
-# React + TypeScript + Vite
+# Asset Monitoring Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and robust web application for monitoring and managing assets, built with React, Redux Toolkit, and Ant Design.
 
-Currently, two official plugins are available:
+## Key Features & Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Framework
 
-## React Compiler
+React (with Vite)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Language
 
-## Expanding the ESLint configuration
+TypeScript
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### State Management
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Redux Toolkit for predictable state management
+- RTK Query for efficient data fetching, caching, and state synchronization
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### UI Library
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Ant Design for a rich set of high-quality components
+
+### Routing
+
+React Router DOM for client-side routing and protected routes
+
+### Mock Backend
+
+json-server with a custom server setup
+
+### Authentication
+
+JWT-based authentication with Access + Refresh Token rotation
+
+### Architecture
+
+Follows a clean, feature-sliced design pattern for scalability and maintainability
+
+## Getting Started
+
+Follow these steps to get the project up and running on your local machine.
+
+### Prerequisites
+
+- Node.js (v18 or later recommended)
+- npm or yarn
+
+## Installation
+
+### Clone the repository
+
+```bash
+git clone <your-repository-url>
+cd <repository-folder>
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+# or
+yarn install
 ```
